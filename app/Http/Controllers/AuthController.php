@@ -44,6 +44,8 @@ class AuthController extends Controller
             'password' => bcrypt($request->get('password')),
         ]);
 
+        event(new Registered($user));
+
         auth()->login($user);
 
         return redirect()
