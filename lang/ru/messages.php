@@ -10,4 +10,5 @@ return [
     'auth.forgot-password' => 'Забыли пароль?',
     'auth.forgot-password.send-link' => 'Отправить',
     'auth.forgot-password.reset-password' => 'Сбросить пароль',
+    'auth.exit' => 'Выйти',
 ];

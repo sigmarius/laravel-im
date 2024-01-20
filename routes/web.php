@@ -25,7 +25,12 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::controller(AuthController::class)->group(function () {
     Route::get('/auth', 'index')->name('auth.login');
+    Route::post('/auth', 'signIn')->name('auth.signIn');
+
     Route::get('/sign-up', 'signUp')->name('auth.sign-up');
+    Route::post('/sign-up', 'register')->name('auth.register');
+
+    Route::delete('/exit', 'exit')->name('auth.exit');
 });
 
 

@@ -1,7 +1,7 @@
 @props([
     'type' => 'text',
     'isError' => false,
-    'name'
+    'name' => ''
 ])
 
 <input {{

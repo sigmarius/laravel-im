@@ -4,7 +4,7 @@
 @section('content')
     <x-forms.auth-forms
         title="{{ __('messages.auth') }}"
-        action="{{ route('login') }}"
+        action="{{ route('auth.signIn') }}"
     >
 
         <div class="row mb-3">

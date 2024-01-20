@@ -5,7 +5,7 @@
 @section('content')
     <x-forms.auth-forms
         title="{{ __('messages.auth.sign-up') }}"
-        action="{{ route('login') }}"
+        action="{{ route('auth.register') }}"
     >
         <div class="row mb-3">
             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('messages.auth.name') }}</label>
