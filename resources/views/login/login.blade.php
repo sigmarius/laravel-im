@@ -68,9 +68,9 @@
                         {{ __('Login') }}
                     </x-forms.primary-button>
 
-                    <x-forms.primary-button>
+                    <a href="{{ route('socialite.github') }}" class="btn btn-primary">
                         {{ __('messages.auth.github') }}
-                    </x-forms.primary-button>
+                    </a>
 
                     <x-forms.forgot-password />
                 </div>
