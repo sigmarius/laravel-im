@@ -4,8 +4,9 @@
 @section('content')
     <x-forms.auth-forms
         title="{{ __('messages.auth.reset-password') }}"
-        action="{{ route('login') }}"
+        action="{{ route('auth.password.update') }}"
     >
+        <input type="hidden" name="token" value="{{ request('token') }}">
 
         <div class="row mb-3">
             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>

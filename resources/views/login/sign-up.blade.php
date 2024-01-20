@@ -104,10 +104,6 @@
                     <x-forms.primary-button type="submit">
                         {{ __('messages.auth.sign-up.action') }}
                     </x-forms.primary-button>
-
-                    <x-forms.primary-button>
-                        {{ __('messages.auth.github') }}
-                    </x-forms.primary-button>
                 </div>
             </div>
         </x-slot:actions>

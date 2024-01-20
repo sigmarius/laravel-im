@@ -31,6 +31,18 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/sign-up', 'register')->name('auth.register');
 
     Route::delete('/exit', 'exit')->name('auth.exit');
+
+    Route::get('/forgot-password', 'forgotPassword')
+        ->middleware('guest')
+        ->name('auth.forgot-password');
+    Route::post('/forgot-password', 'forgotPasswordProcess')
+        ->middleware('guest')
+        ->name('auth.forgot-password.email');
+
+    Route::get('/reset-password/{token}', 'resetPassword')
+        ->middleware('guest')
+        ->name('auth.password.reset');
+    Route::post('/reset-password', 'resetPasswordProcess')->middleware('guest')->name('auth.password.update');
 });
 
 

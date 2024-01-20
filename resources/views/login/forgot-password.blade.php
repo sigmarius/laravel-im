@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', __('messages.forgot-password'))
+@section('title', __('messages.auth.forgot-password'))
 @section('content')
     <x-forms.auth-forms
-        title="{{ __('messages.forgot-password') }}"
-        action="{{ route('login') }}"
+        title="{{ __('messages.auth.forgot-password') }}"
+        action="{{ route('auth.forgot-password.email') }}"
     >
 
         <div class="row mb-3">
@@ -27,6 +27,8 @@
                 @enderror
             </div>
         </div>
+
+        <x-slot:rememberMe></x-slot:rememberMe>
 
         <x-slot:actions>
             <div class="row mb-0">
