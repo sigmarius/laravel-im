@@ -42,6 +42,9 @@
                                     <a class="nav-link" href="{{ route('auth.login') }}">{{ __('messages.auth') }}</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('auth.sign-up') }}">{{ __('messages.auth.sign-up') }}</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif

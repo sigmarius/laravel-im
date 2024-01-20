@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', __('messages.auth'))
+@section('title', __('messages.auth.reset-password'))
 @section('content')
     <x-forms.auth-forms
-        title="{{ __('messages.auth') }}"
+        title="{{ __('messages.auth.reset-password') }}"
         action="{{ route('login') }}"
     >
 
@@ -47,32 +47,30 @@
             </div>
         </div>
 
-        <x-slot:rememberMe>
-            <div class="row mb-3">
-                <div class="col-md-6 offset-md-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+        <div class="row mb-3">
+            <label for="password_confirmation" class="col-md-4 col-form-label text-md-end">{{ __('messages.auth.password_confirmation') }}</label>
 
-                        <label class="form-check-label" for="remember">
-                            {{ __('Remember Me') }}
-                        </label>
-                    </div>
-                </div>
+            <div class="col-md-6">
+                <x-forms.text-input
+                    type="password"
+                    name="password_confirmation"
+                    :isError="$errors->has('password_confirmation')"
+                />
+
+                @error('password_confirmation')
+                <x-forms.error>
+                    {{ $message }}
+                </x-forms.error>
+                @enderror
             </div>
-        </x-slot:rememberMe>
+        </div>
 
         <x-slot:actions>
             <div class="row mb-0">
                 <div class="col-md-8 offset-md-4">
                     <x-forms.primary-button type="submit">
-                        {{ __('Login') }}
+                        {{ __('messages.auth.forgot-password.send-link') }}
                     </x-forms.primary-button>
-
-                    <x-forms.primary-button>
-                        {{ __('messages.auth.github') }}
-                    </x-forms.primary-button>
-
-                    <x-forms.forgot-password />
                 </div>
             </div>
         </x-slot:actions>

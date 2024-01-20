@@ -1,11 +1,31 @@
 @extends('layouts.app')
 
-@section('title', __('messages.auth'))
+@section('title', __('messages.auth.sign-up'))
+
 @section('content')
     <x-forms.auth-forms
-        title="{{ __('messages.auth') }}"
+        title="{{ __('messages.auth.sign-up') }}"
         action="{{ route('login') }}"
     >
+        <div class="row mb-3">
+            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('messages.auth.name') }}</label>
+
+            <div class="col-md-6">
+                <x-forms.text-input
+                    name="name"
+                    autocomplete="name"
+                    value="{{ old('name') }}"
+                    autofocus="true"
+                    :isError="$errors->has('name')"
+                />
+
+                @error('name')
+                <x-forms.error>
+                    {{ $message }}
+                </x-forms.error>
+                @enderror
+            </div>
+        </div>
 
         <div class="row mb-3">
             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
@@ -16,7 +36,6 @@
                     name="email"
                     autocomplete="email"
                     value="{{ old('email') }}"
-                    autofocus="true"
                     :isError="$errors->has('email')"
                 />
 
@@ -47,6 +66,24 @@
             </div>
         </div>
 
+        <div class="row mb-3">
+            <label for="password_confirmation" class="col-md-4 col-form-label text-md-end">{{ __('messages.auth.password_confirmation') }}</label>
+
+            <div class="col-md-6">
+                <x-forms.text-input
+                    type="password"
+                    name="password_confirmation"
+                    :isError="$errors->has('password_confirmation')"
+                />
+
+                @error('password_confirmation')
+                <x-forms.error>
+                    {{ $message }}
+                </x-forms.error>
+                @enderror
+            </div>
+        </div>
+
         <x-slot:rememberMe>
             <div class="row mb-3">
                 <div class="col-md-6 offset-md-4">
@@ -65,14 +102,12 @@
             <div class="row mb-0">
                 <div class="col-md-8 offset-md-4">
                     <x-forms.primary-button type="submit">
-                        {{ __('Login') }}
+                        {{ __('messages.auth.sign-up.action') }}
                     </x-forms.primary-button>
 
                     <x-forms.primary-button>
                         {{ __('messages.auth.github') }}
                     </x-forms.primary-button>
-
-                    <x-forms.forgot-password />
                 </div>
             </div>
         </x-slot:actions>
