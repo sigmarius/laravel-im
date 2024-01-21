@@ -55,7 +55,7 @@
                                 </li>
                             @endif
                         @else
-                            <form action="{{ route('auth.exit') }}" method="POST">
+                            <form action="{{ route('auth.exit') }}" method="POST" class="d-flex align-items-center">
                                @csrf
                                 @method('DELETE')
 
@@ -66,7 +66,8 @@
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    <img src="{{ auth()->user()->avatar }}" alt="{{ auth()->user()->name }}" width="32" height="32">
+                                    <span>{{ auth()->user()->name }}</span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
