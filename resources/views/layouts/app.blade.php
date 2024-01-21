@@ -89,14 +89,11 @@
         </nav>
 
         <main class="py-4">
-            @if(session()->has('message'))
-                <div class="alert alert-info" role="alert">
-                    {{ session('message') }}
-                </div>
-            @endif
-
+            @include('shared.flash')
             @yield('content')
         </main>
+
+        @include('shared.footer')
     </div>
 </body>
 </html>
